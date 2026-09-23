@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sekolah Bahasa - lembaga pembelajaran bahasa asing profesional untuk kebutuhan akademik, karier, dan bisnis."
+    />
+    <title>Sekolah Bahasa | Company Profile</title>
+
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@3.7.6/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="app">
+      <v-app>
+        <v-app-bar color="white" elevation="0" height="92" class="border-b">
+          <v-container class="content-width d-flex align-center pa-0">
+            <a href="#home" class="d-inline-flex align-center">
+              <img src="assets/logo.png" alt="Sekolah Bahasa" class="logo" />
+            </a>
+
+            <v-spacer></v-spacer>
+
+            <div class="d-none d-md-flex align-center ga-7">
+              <v-btn
+                v-for="item in navItems"
+                :key="item.title"
+                :href="item.href"
+                variant="text"
+                height="48"
+                class="nav-link font-weight-bold px-0"
+              >
+                {{ item.title }}
+              </v-btn>
+            </div>
+
+            <v-spacer class="d-none d-md-flex"></v-spacer>
+
+            <v-btn
+              class="d-none d-md-inline-flex px-6"
+              color="primary"
+              rounded="lg"
+              variant="flat"
+              size="large"
+              href="https://wa.me/6281246000546"
+              target="_blank"
+            >
+              Konsultasi Gratis
+            </v-btn>
+
+            <v-app-bar-nav-icon
+              class="d-flex d-md-none"
+              @click="drawer = !drawer"
+            ></v-app-bar-nav-icon>
+          </v-container>
+        </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" temporary location="right">
+          <v-list nav class="pa-4">
+            <v-list-item
+              v-for="item in navItems"
+              :key="item.title"
+              :title="item.title"
+              :href="item.href"
+              rounded="lg"
+              @click="drawer = false"
+            ></v-list-item>
+            <v-list-item class="mt-4 pa-0">
+              <v-btn
+                color="primary"
+                block
+                rounded="lg"
+                href="https://wa.me/6281246000546"
+                target="_blank"
+              >
+                Konsultasi Gratis
+              </v-btn>
+            </v-list-item>
+          </v-list>
+        </v-navigation-drawer>
+
+        <v-main>
+          <section id="home" class="section-white">
+            <v-container class="content-width hero-section py-12 py-md-16">
+              <v-row align="center" class="py-md-10">
+                <v-col cols="12" md="6" class="pr-md-12 text-center text-sm-start">
+                  <v-chip
+                    color="secondary"
+                    variant="tonal"
+                    size="small"
+                    prepend-icon="mdi-circle-small"
+                    class="mb-6 text-uppercase font-weight-black"
+                  >
+                    Transforming Words Into World
+                  </v-chip>
+
+                  <h1 class="hero-title font-weight-black text-deep-green mb-6">
+                    Kuasai Bahasa
+                    <span class="text-primary d-block">Untuk Masa Depan</span>
+                  </h1>
+
+                  <p class="text-body-1 text-grey-darken-1 mb-8 hero-copy">
+                    Sekolah Bahasa membantu pelajar, profesional, dan organisasi
+                    berkembang melalui kelas interaktif, kurikulum relevan, dan
+                    mentor berpengalaman.
+                  </p>
+
+                  <div class="d-flex flex-column flex-sm-row align-center ga-6">
+                    <v-btn
+                      color="deepGreen"
+                      rounded="lg"
+                      height="54"
+                      class="px-7"
+                      href="#programs"
+                      append-icon="mdi-arrow-right"
+                    >
+                      Lihat Program
+                    </v-btn>
+
+                    <div class="d-flex ga-8">
+                      <div v-for="stat in heroStats" :key="stat.label">
+                        <div class="text-h6 font-weight-black text-deep-green">
+                          {{ stat.value }}
+                        </div>
+                        <div class="text-caption text-uppercase font-weight-bold text-grey-darken-1">
+                          {{ stat.label }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </v-col>
+
+                <v-col cols="12" md="6" class="d-flex justify-center justify-md-end">
+                  <div class="hero-photo-wrap">
+                    <v-img
+                      src="assets/hero.jpg"
+                      alt="Siswa Sekolah Bahasa sedang belajar"
+                      cover
+                      class="hero-photo"
+                    ></v-img>
+                    <v-card rounded="lg" elevation="8" class="hero-badge pa-4">
+                      <div class="text-h6 font-weight-black text-deep-green">4+ Kota</div>
+                      <div class="text-caption text-grey-darken-1">Kelas online & tatap muka</div>
+                    </v-card>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-container>
+          </section>
+
+          <section id="programs" class="section-soft">
+            <v-container class="content-width py-14 py-md-16">
+              <div class="section-copy mb-10 text-center text-sm-start">
+                <div class="eyebrow text-primary mb-3">Programs & Services</div>
+                <h2 class="section-title text-deep-green mb-5">
+                  Program untuk tujuan yang berbeda.
+                </h2>
+                <p class="text-body-1 text-grey-darken-1">
+                  Dari percakapan harian sampai persiapan skor, setiap program
+                  dirancang dengan langkah yang jelas.
+                </p>
+              </div>
+
+              <v-row>
+                <v-col
+                  v-for="program in programs"
+                  :key="program.title"
+                  cols="12"
+                  sm="6"
+                  lg="4"
+                >
+                  <v-card
+                    rounded="lg"
+                    elevation="0"
+                    class="program-card h-100 pa-7 d-flex flex-column align-center align-sm-start text-center text-sm-start"
+                  >
+                    <v-avatar
+                      :color="program.badgeColor"
+                      rounded="lg"
+                      size="48"
+                      class="mb-7"
+                    >
+                      <span
+                        class="d-inline-flex"
+                        :class="program.textColor"
+                        v-html="program.icon"
+                      ></span>
+                    </v-avatar>
+
+                    <h3 class="text-h6 font-weight-black text-deep-green mb-3">
+                      {{ program.title }}
+                    </h3>
+                    <p class="text-body-2 text-grey-darken-1 mb-7">
+                      {{ program.description }}
+                    </p>
+
+                    <v-spacer></v-spacer>
+                    <v-divider class="mb-4"></v-divider>
+                    <div class="d-flex justify-space-between align-center">
+                      <span class="text-caption text-uppercase font-weight-black text-grey-darken-1">
+                        {{ program.tag }}
+                      </span>
+                      <v-icon icon="mdi-arrow-top-right" color="primary" size="18"></v-icon>
+                    </div>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-container>
+          </section>
+
+          <section id="about" class="section-white">
+            <v-container class="content-width py-14 py-md-16">
+              <v-row align="center">
+                <v-col cols="12" md="6" class="pr-md-12 text-center text-sm-start">
+                  <div class="eyebrow text-primary mb-3">About Us</div>
+                  <h2 class="section-title text-deep-green mb-5">
+                    Mitra belajar untuk masa depan global.
+                  </h2>
+                  <p class="text-body-1 text-grey-darken-1">
+                    Sekolah Bahasa, di bawah naungan PT. Sebabisa Baruna
+                    Bersama, membuat pembelajaran bahasa asing lebih praktis,
+                    menyenangkan, dan dekat dengan tujuan nyata, baik akademik,
+                    karier, maupun bisnis.
+                  </p>
+                </v-col>
+
+                <v-col cols="12" md="6">
+                  <v-row>
+                    <v-col cols="12" sm="6">
+                      <v-card elevation="0" class="value-card value-green pa-7 h-100 text-center text-sm-start">
+                        <div class="eyebrow text-primary mb-6">Misi</div>
+                        <h3 class="text-h6 font-weight-black text-deep-green mb-3">
+                          Belajar yang terarah
+                        </h3>
+                        <p class="text-body-2 text-grey-darken-1 mb-0">
+                          Metode interaktif yang sesuai kebutuhan setiap peserta.
+                        </p>
+                      </v-card>
+                    </v-col>
+                    <v-col cols="12" sm="6">
+                      <v-card elevation="0" class="value-card value-orange pa-7 h-100 text-center text-sm-start">
+                        <div class="eyebrow text-secondary mb-6">Visi</div>
+                        <h3 class="text-h6 font-weight-black text-deep-green mb-3">
+                          Peluang tanpa batas
+                        </h3>
+                        <p class="text-body-2 text-grey-darken-1 mb-0">
+                          Membuka komunikasi lintas budaya dan kesempatan global.
+                        </p>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </v-container>
+          </section>
+
+          <section id="why-us" class="section-soft">
+            <v-container class="content-width py-14 py-md-16">
+              <div class="section-copy text-center mx-auto mb-10">
+                <div class="eyebrow text-primary mb-3">Why Choose Us</div>
+                <h2 class="section-title text-deep-green">
+                  Belajar dengan dukungan yang tepat.
+                </h2>
+              </div>
+
+              <v-card rounded="lg" elevation="0" class="why-grid overflow-hidden mb-14">
+                <v-row no-gutters>
+                  <v-col
+                    v-for="feature in features"
+                    :key="feature.title"
+                    cols="12"
+                    sm="6"
+                    md="3"
+                  >
+                    <div class="why-item pa-7 h-100 text-center text-sm-start">
+                      <div class="text-secondary text-caption font-weight-black mb-8">
+                        {{ feature.number }}
+                      </div>
+                      <h3 class="text-subtitle-1 font-weight-black text-deep-green mb-3">
+                        {{ feature.title }}
+                      </h3>
+                      <p class="text-body-2 text-grey-darken-1 mb-0">
+                        {{ feature.description }}
+                      </p>
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-card>
+
+              <v-card rounded="xl" elevation="0" class="corporate-card overflow-hidden">
+                <v-row no-gutters align="stretch">
+                  <v-col cols="12" md="6">
+                    <div class="corporate-copy pa-8 pa-md-12 h-100 text-center text-sm-start">
+                      <div class="eyebrow text-primary mb-5">Corporate Training</div>
+                      <h2 class="text-h4 text-md-h3 font-weight-black text-white mb-5">
+                        Solusi bahasa untuk tim Anda.
+                      </h2>
+                      <p class="text-body-1 text-green-lighten-4 mb-8">
+                        Pelatihan bahasa di tempat kerja yang disesuaikan dengan
+                        kebutuhan industri dan target bisnis perusahaan.
+                      </p>
+
+                      <div class="d-flex flex-column align-center align-sm-start ga-3 mb-8">
+                        <div
+                          v-for="item in corporatePoints"
+                          :key="item"
+                          class="d-flex align-center text-white text-body-2"
+                        >
+                          <v-icon icon="mdi-check" color="primary" size="18" class="mr-2"></v-icon>
+                          {{ item }}
+                        </div>
+                      </div>
+
+                      <v-btn
+                        color="primary"
+                        rounded="lg"
+                        height="48"
+                        href="https://wa.me/6281246000546"
+                        target="_blank"
+                      >
+                        Hubungi Tim Kami
+                      </v-btn>
+                    </div>
+                  </v-col>
+                  <v-col cols="12" md="6">
+                    <v-img
+                      src="assets/corporate-training.jpg"
+                      alt="Pelatihan bahasa untuk perusahaan"
+                      cover
+                      class="corporate-image h-100"
+                    ></v-img>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-container>
+          </section>
+        </v-main>
+
+        <v-footer id="contact" color="white">
+          <v-container class="content-width py-12 py-md-14">
+            <v-row>
+              <v-col cols="12" md="5" class="text-center text-sm-start">
+                <img src="assets/logo.png" alt="Sekolah Bahasa" class="logo mb-6 mx-auto mx-sm-0" />
+                <p class="text-body-2 text-grey-darken-1 mb-5 footer-copy">
+                  PT. Sebabisa Baruna Bersama<br />
+                  Jl. Kenanga No. 18/38, Pondok Pinang, Kebayoran Lama,
+                  Jakarta Selatan 12310
+                </p>
+                <div class="d-flex flex-wrap justify-center justify-sm-start ga-2">
+                  <v-chip
+                    v-for="branch in branches"
+                    :key="branch"
+                    size="small"
+                    color="grey-lighten-4"
+                    class="font-weight-bold text-deep-green"
+                  >
+                    {{ branch }}
+                  </v-chip>
+                </div>
+              </v-col>
+
+              <v-col cols="12" sm="6" md="3" offset-md="1" class="text-center text-sm-start">
+                <h3 class="text-subtitle-1 font-weight-black text-deep-green mb-5">
+                  Contact
+                </h3>
+                <p class="text-body-2 text-grey-darken-1 mb-2">info@sekolahbahasa.com</p>
+                <p class="text-body-2 text-grey-darken-1 mb-2">+62 812-4600-0546</p>
+                <p class="text-body-2 text-grey-darken-1 mb-0">08.00 - 20.00 WIB</p>
+              </v-col>
+
+              <v-col cols="12" sm="6" md="3" class="text-center text-sm-start">
+                <h3 class="text-subtitle-1 font-weight-black text-deep-green mb-5">
+                  Links
+                </h3>
+                <div class="d-flex flex-column align-center align-sm-start ga-2">
+                  <a
+                    v-for="item in footerLinks"
+                    :key="item.title"
+                    :href="item.href"
+                    class="text-grey-darken-1 text-decoration-none text-body-2"
+                  >
+                    {{ item.title }}
+                  </a>
+                </div>
+              </v-col>
+            </v-row>
+
+            <v-divider class="my-9"></v-divider>
+
+            <div class="d-flex flex-column flex-md-row align-center justify-space-between ga-3 text-center text-md-start">
+              <div class="text-caption text-grey-darken-1">
+                &copy; {{ new Date().getFullYear() }} Sekolah Bahasa. All rights reserved.
+              </div>
+              <div class="text-caption text-grey-darken-1">
+                Transforming Words into World
+              </div>
+            </div>
+          </v-container>
+        </v-footer>
+
+        <v-btn
+          class="whatsapp-fab"
+          icon="mdi-whatsapp"
+          color="primary"
+          size="large"
+          elevation="6"
+          href="https://wa.me/6281246000546"
+          target="_blank"
+        ></v-btn>
+      </v-app>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.7.6/dist/vuetify.min.js"></script>
+    <script>
+      const { createApp } = Vue;
+      const { createVuetify } = Vuetify;
+
+      const vuetify = createVuetify({
+        theme: {
+          defaultTheme: "sekolahBahasa",
+          themes: {
+            sekolahBahasa: {
+              dark: false,
+              colors: {
+                primary: "#7cc63f",
+                "on-primary": "#ffffff",
+                secondary: "#f4a340",
+                deepGreen: "#102a12",
+                surface: "#ffffff",
+              },
+            },
+          },
+        },
+      });
+
+      const lucideIcons = {
+        bookOpen:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z" /></svg>',
+        messageCircle:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>',
+        briefcase:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /><rect width="20" height="14" x="2" y="6" rx="2" /></svg>',
+        trendingUp:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg>',
+        languages:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path d="m22 22-5-10-5 10" /><path d="M14 18h6" /></svg>',
+        building:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10h.01" /><path d="M12 14h.01" /><path d="M12 6h.01" /><path d="M16 10h.01" /><path d="M16 14h.01" /><path d="M16 6h.01" /><path d="M8 10h.01" /><path d="M8 14h.01" /><path d="M8 6h.01" /><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" /><rect x="4" y="2" width="16" height="20" rx="2" /></svg>',
+      };
+
+      createApp({
+        data() {
+          return {
+            drawer: false,
+            navItems: [
+              { title: "Home", href: "#home" },
+              { title: "About Us", href: "#about" },
+              { title: "Why Us", href: "#why-us" },
+              { title: "Programs", href: "#programs" },
+              { title: "Contact", href: "#contact" },
+            ],
+            heroStats: [
+              { value: "6+", label: "Tahun Pengalaman" },
+              { value: "1,000+", label: "Alumni Terbantu" },
+            ],
+            programs: [
+              {
+                icon: lucideIcons.bookOpen,
+                title: "General English",
+                description:
+                  "Bangun fondasi grammar, vocabulary, listening, speaking, reading, dan writing.",
+                tag: "Beginner friendly",
+                badgeColor: "green-lighten-4",
+                textColor: "text-primary",
+              },
+              {
+                icon: lucideIcons.messageCircle,
+                title: "Conversation Class",
+                description:
+                  "Latih keberanian berbicara, pronunciation, dan respons alami dalam percakapan.",
+                tag: "Speaking focused",
+                badgeColor: "orange-lighten-5",
+                textColor: "text-secondary",
+              },
+              {
+                icon: lucideIcons.briefcase,
+                title: "English for Specific Purposes",
+                description:
+                  "Materi terarah untuk pekerjaan, industri, presentasi, dan komunikasi profesional.",
+                tag: "Career ready",
+                badgeColor: "green-lighten-4",
+                textColor: "text-primary",
+              },
+              {
+                icon: lucideIcons.trendingUp,
+                title: "Score Preparation",
+                description:
+                  "Strategi belajar, latihan soal, dan evaluasi perkembangan untuk mencapai target tes.",
+                tag: "Goal oriented",
+                badgeColor: "orange-lighten-5",
+                textColor: "text-secondary",
+              },
+              {
+                icon: lucideIcons.languages,
+                title: "Mandarin & Korean",
+                description:
+                  "Program bahasa Asia untuk kebutuhan studi, budaya, dan karier internasional.",
+                tag: "New language",
+                badgeColor: "green-lighten-4",
+                textColor: "text-primary",
+              },
+              {
+                icon: lucideIcons.building,
+                title: "Corporate Training",
+                description:
+                  "Pelatihan untuk perusahaan dengan kurikulum yang disesuaikan target bisnis.",
+                tag: "For teams",
+                badgeColor: "orange-lighten-5",
+                textColor: "text-secondary",
+              },
+            ],
+            features: [
+              {
+                number: "01",
+                title: "Mentor Berpengalaman",
+                description: "Belajar bersama pengajar yang kompeten dan berpengalaman di bidangnya.",
+              },
+              {
+                number: "02",
+                title: "Kurikulum Relevan",
+                description: "Materi disusun sesuai kebutuhan akademik, karier, dan bisnis peserta.",
+              },
+              {
+                number: "03",
+                title: "Kelas Fleksibel",
+                description: "Pilihan kelas online maupun tatap muka yang menyesuaikan kesibukan Anda.",
+              },
+              {
+                number: "04",
+                title: "Sertifikat Resmi",
+                description: "Sertifikat penyelesaian program sebagai bukti perkembangan kompetensi.",
+              },
+            ],
+            corporatePoints: [
+              "Kurikulum sesuai kebutuhan industri",
+              "Jadwal online maupun tatap muka",
+              "Evaluasi perkembangan peserta",
+            ],
+            branches: ["Jakarta", "Blora", "Cirebon", "Bekasi", "Wonosobo"],
+            footerLinks: [
+              { title: "About Us", href: "#about" },
+              { title: "Why Us", href: "#why-us" },
+              { title: "Programs", href: "#programs" },
+              { title: "Kembali ke atas", href: "#home" },
+            ],
+          };
+        },
+      })
+        .use(vuetify)
+        .mount("#app");
+    </script>
+  </body>
+</html>
